@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "nuke.globaltool": {
+      "version": "6.3.0",
+      "commands": [
+        "nuke"
+      ]
+    },
+    "docfx": {
+      "version": "2.66.0",
+      "commands": [
+        "docfx"
+      ]
+    }
+  }
+}
