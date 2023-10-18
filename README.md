@@ -2,7 +2,7 @@
 
 Shared components for the [NUKE build system](https://nuke.build).
 
-For more information about these components, see the [docs](https://hexagram-solutions.github.io/nuke-components).
+For more information about these components, see the [docs](https://hexagram-solutions.github.io/nuke-components/api/Hexagrams.Nuke.Components.html).
 
 To read more about shared components in general, see the [official NUKE docs](https://nuke.build/docs/sharing/build-components).
 
