@@ -12,8 +12,8 @@
 
   <PropertyGroup>
     <Description>Shared components for the NUKE build system.</Description>
-    <Authors>Hexagrams Inc.</Authors>
-    <Copyright>Copyright $([System.DateTime]::Now.Year) Hexagrams Inc.</Copyright>
+    <Authors>Hexagrams Solutions</Authors>
+    <Copyright>Copyright $([System.DateTime]::Now.Year) Hexagrams Solutions</Copyright>
     <PackageTags>build-automation continuous-integration tools nuke</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Hexagrams/nuke-components</PackageProjectUrl>
