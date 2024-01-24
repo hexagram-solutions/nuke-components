@@ -58,7 +58,7 @@ public interface IReportCoverage : ITest, IHasReports, IHasGitRepository
         .SetReports(TestResultDirectory / "*.xml")
         .SetReportTypes(ReportTypes.HtmlInline)
         .SetTargetDirectory(CoverageReportDirectory)
-        .SetFramework("net6.0");
+        .SetFramework("net8.0");
 
     /// <summary>
     /// Additional settings for controlling the generation of code coverage reports.
