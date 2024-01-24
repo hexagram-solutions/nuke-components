@@ -15,25 +15,25 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
     /// <summary>
     /// Compile the solution with <c>dotnet build</c>.
     /// </summary>
-    Target Compile => _ => _
+    Target Compile => t => t
         .Description("Compile the solution")
         .DependsOn(Clean)
         .DependsOn(Restore)
         .WhenSkipped(DependencyBehavior.Skip)
         .Executes(() =>
         {
-            ReportSummary(_ => _
-                .WhenNotNull(this as IHasVersioning, (_, o) => _
+            ReportSummary(d => d
+                .WhenNotNull(this as IHasVersioning, (x, o) => x
                     .AddPair("Version", o!.Versioning.FullSemVer)));
 
-            DotNetBuild(_ => _
+            DotNetBuild(s => s
                 .Apply(CompileSettingsBase)
                 .Apply(CompileSettings));
 
-            DotNetPublish(_ => _
+            DotNetPublish(s => s
                     .Apply(PublishSettingsBase)
                     .Apply(PublishSettings)
-                    .CombineWith(PublishConfigurations, (_, v) => _.SetProject((string) v.Project)
+                    .CombineWith(PublishConfigurations, (x, v) => x.SetProject((string) v.Project)
                         .SetFramework(v.Framework)),
                 PublishDegreeOfParallelism);
         });
@@ -41,15 +41,15 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
     /// <summary>
     /// Settings for controlling compilation behavior.
     /// </summary>
-    sealed Configure<DotNetBuildSettings> CompileSettingsBase => _ => _
+    sealed Configure<DotNetBuildSettings> CompileSettingsBase => t => t
         .SetProjectFile(Solution)
         .SetConfiguration(Configuration)
-        .When(IsServerBuild, _ => _
+        .When(IsServerBuild, s => s
             .EnableContinuousIntegrationBuild())
         .SetNoRestore(SucceededTargets.Contains(Restore))
-        .WhenNotNull(this as IHasGitRepository, (_, o) => _
+        .WhenNotNull(this as IHasGitRepository, (s, o) => s
             .SetRepositoryUrl(o!.GitRepository.HttpsUrl))
-        .WhenNotNull(this as IHasVersioning, (_, o) => _
+        .WhenNotNull(this as IHasVersioning, (s, o) => s
             .SetAssemblyVersion(o!.Versioning.AssemblySemVer)
             .SetFileVersion(o.Versioning.AssemblySemFileVer)
             .SetInformationalVersion(o.Versioning.InformationalVersion));
@@ -57,15 +57,15 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
     /// <summary>
     /// Settings for controlling publish behavior.
     /// </summary>
-    sealed Configure<DotNetPublishSettings> PublishSettingsBase => _ => _
+    sealed Configure<DotNetPublishSettings> PublishSettingsBase => t => t
         .SetConfiguration(Configuration)
         .EnableNoBuild()
         .EnableNoLogo()
-        .When(IsServerBuild, _ => _
+        .When(IsServerBuild, s => s
             .EnableContinuousIntegrationBuild())
-        .WhenNotNull(this as IHasGitRepository, (_, o) => _
+        .WhenNotNull(this as IHasGitRepository, (s, o) => s
             .SetRepositoryUrl(o!.GitRepository.HttpsUrl))
-        .WhenNotNull(this as IHasVersioning, (_, o) => _
+        .WhenNotNull(this as IHasVersioning, (s, o) => s
             .SetAssemblyVersion(o!.Versioning.AssemblySemVer)
             .SetFileVersion(o.Versioning.AssemblySemFileVer)
             .SetInformationalVersion(o.Versioning.InformationalVersion));
@@ -73,12 +73,12 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
     /// <summary>
     /// Additional settings for controlling the <c>dotnet build</c> command.
     /// </summary>
-    Configure<DotNetBuildSettings> CompileSettings => _ => _;
+    Configure<DotNetBuildSettings> CompileSettings => t => t;
 
     /// <summary>
     /// Additional settings for controlling the <c>dotnet publish</c> command.
     /// </summary>
-    Configure<DotNetPublishSettings> PublishSettings => _ => _;
+    Configure<DotNetPublishSettings> PublishSettings => t => t;
 
     /// <summary>
     /// The publish configurations to build with.

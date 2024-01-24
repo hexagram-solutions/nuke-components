@@ -18,12 +18,12 @@ public interface IClean : IHasSolution
     /// <summary>
     /// Clean the current solution with <c>dotnet clean</c>.
     /// </summary>
-    Target Clean => _ => _
+    Target Clean => t => t
         .Description("Clean the solution and build artifacts")
         .Before<IRestore>()
         .Executes(() =>
         {
-            DotNetClean(_ => _
+            DotNetClean(s => s
                 .SetProject(Solution));
 
             if (CleanArtifactsDirectory && this is IHasArtifacts hasArtifacts)

@@ -13,10 +13,10 @@ public interface IRestore : IHasSolution
     /// <summary>
     /// Restore dependencies using <c>dotnet restore</c>.
     /// </summary>
-    Target Restore => _ => _
+    Target Restore => t => t
         .Executes(() =>
         {
-            DotNetRestore(_ => _
+            DotNetRestore(s => s
                 .Apply(RestoreSettingsBase)
                 .Apply(RestoreSettings));
         });
@@ -24,14 +24,14 @@ public interface IRestore : IHasSolution
     /// <summary>
     /// Settings for configuring the <c>dotnet restore</c> command.
     /// </summary>
-    sealed Configure<DotNetRestoreSettings> RestoreSettingsBase => _ => _
+    sealed Configure<DotNetRestoreSettings> RestoreSettingsBase => t => t
         .SetProjectFile(Solution)
         .SetIgnoreFailedSources(IgnoreFailedSources);
 
     /// <summary>
     /// Additional settings for configuring the <c>dotnet restore</c> command.
     /// </summary>
-    Configure<DotNetRestoreSettings> RestoreSettings => _ => _;
+    Configure<DotNetRestoreSettings> RestoreSettings => t => t;
 
     /// <summary>
     /// Whether or not to ignore failed sources during restore. Defaults to <c>false</c>.

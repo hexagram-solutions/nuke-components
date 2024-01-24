@@ -36,7 +36,7 @@ public interface ITest : IHasArtifacts, ICompile
     /// <summary>
     /// Execute unit tests in the solution using <c>dotnet test</c>.
     /// </summary>
-    Target Test => _ => _
+    Target Test => t => t
         .DependsOn(Compile)
         .Produces(TestResultDirectory / "*.trx")
         .Produces(TestResultDirectory / "*.xml")
@@ -44,10 +44,10 @@ public interface ITest : IHasArtifacts, ICompile
         {
             try
             {
-                DotNetTest(_ => _
+                DotNetTest(s => s
                         .Apply(TestSettingsBase)
                         .Apply(TestSettings)
-                        .CombineWith(TestProjects, (_, v) => _
+                        .CombineWith(TestProjects, (x, v) => x
                             .Apply(TestProjectSettingsBase, v)
                             .Apply(TestProjectSettings, v)),
                     completeOnFailure: true,
@@ -85,55 +85,55 @@ public interface ITest : IHasArtifacts, ICompile
         var failedTests = outcomes.Count(x => x == "Failed");
         var skippedTests = outcomes.Count(x => x == "NotExecuted");
 
-        ReportSummary(_ => _
-            .When(failedTests > 0, _ => _
+        ReportSummary(d => d
+            .When(failedTests > 0, x => x
                 .AddPair("Failed", failedTests.ToString(CultureInfo.InvariantCulture)))
             .AddPair("Passed", passedTests.ToString(CultureInfo.InvariantCulture))
-            .When(skippedTests > 0, _ => _
+            .When(skippedTests > 0, x => x
                 .AddPair("Skipped", skippedTests.ToString(CultureInfo.InvariantCulture))));
     }
 
     /// <summary>
     /// Settings for controlling test execution behavior.
     /// </summary>
-    sealed Configure<DotNetTestSettings> TestSettingsBase => _ => _
+    sealed Configure<DotNetTestSettings> TestSettingsBase => t => t
         .SetConfiguration(Configuration)
         .SetNoBuild(SucceededTargets.Contains(Compile))
         .ResetVerbosity()
         .SetResultsDirectory(TestResultDirectory)
-        .When(ExecutionPlan.Contains((this as IReportCoverage)?.ReportCoverage) || IsServerBuild, _ => _
+        .When(ExecutionPlan.Contains((this as IReportCoverage)?.ReportCoverage) || IsServerBuild, s => s
             .EnableCollectCoverage()
             .SetCoverletOutputFormat(CoverletOutputFormat.cobertura)
             .SetExcludeByFile("*.Generated.cs")
-            .When(TeamCity.Instance is not null, _ => _
+            .When(TeamCity.Instance is not null, x => x
                 .SetCoverletOutputFormat($"\\\"{CoverletOutputFormat.cobertura},{CoverletOutputFormat.teamcity}\\\""))
-            .When(IsServerBuild, _ => _
+            .When(IsServerBuild, x => x
                 .EnableUseSourceLink()));
 
     /// <summary>
     /// Settings for configuring test projects.
     /// </summary>
-    sealed Configure<DotNetTestSettings, Project> TestProjectSettingsBase => (_, v) => _
+    sealed Configure<DotNetTestSettings, Project> TestProjectSettingsBase => (s, v) => s
         .SetProjectFile(v)
         // https://github.com/Tyrrrz/GitHubActionsTestLogger
-        .When(GitHubActions.Instance is not null && v.HasPackageReference("GitHubActionsTestLogger"), _ => _
+        .When(GitHubActions.Instance is not null && v.HasPackageReference("GitHubActionsTestLogger"), x => x
             .AddLoggers("GitHubActions;report-warnings=false"))
         // https://github.com/JetBrains/TeamCity.VSTest.TestAdapter
-        .When(TeamCity.Instance is not null && v.HasPackageReference("TeamCity.VSTest.TestAdapter"), _ => _
+        .When(TeamCity.Instance is not null && v.HasPackageReference("TeamCity.VSTest.TestAdapter"), x => x
             .AddLoggers("TeamCity")
             // https://github.com/xunit/visualstudio.xunit/pull/108
             .AddRunSetting("RunConfiguration.NoAutoReporters", bool.TrueString))
         .AddLoggers($"trx;LogFileName={v.Name}.trx")
-        .When(ExecutionPlan.Contains((this as IReportCoverage)?.ReportCoverage) || IsServerBuild, _ => _
+        .When(ExecutionPlan.Contains((this as IReportCoverage)?.ReportCoverage) || IsServerBuild, x => x
             .SetCoverletOutput(TestResultDirectory / $"{v.Name}.xml"));
 
     /// <summary>
     /// Additional settings for controlling test execution behavior.
     /// </summary>
-    Configure<DotNetTestSettings> TestSettings => _ => _;
+    Configure<DotNetTestSettings> TestSettings => t => t;
 
     /// <summary>
     /// Additional settings for configuring test projects.
     /// </summary>
-    Configure<DotNetTestSettings, Project> TestProjectSettings => (_, v) => _;
+    Configure<DotNetTestSettings, Project> TestProjectSettings => (s, _) => s;
 }
