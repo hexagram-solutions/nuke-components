@@ -27,7 +27,7 @@ public interface IFormat : IHasSolution
     /// <summary>
     /// Verify code style preferences using <c>dotnet format</c>.
     /// </summary>
-    Target VerifyFormat => _ => _
+    Target VerifyFormat => t => t
         .Description("Verify code formatting for the solution.")
         .TryBefore<ICompile>()
         .Executes(() =>
@@ -51,7 +51,7 @@ public interface IFormat : IHasSolution
     /// <summary>
     /// Apply code style preferences using <c>dotnet format</c>.
     /// </summary>
-    Target Format => _ => _
+    Target Format => t => t
         .Executes(() =>
         {
             DotNet($"format whitespace {Solution.Path} " +

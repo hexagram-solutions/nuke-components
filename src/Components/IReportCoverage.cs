@@ -35,7 +35,7 @@ public interface IReportCoverage : ITest, IHasReports, IHasGitRepository
     /// <summary>
     /// Create code coverage reports.
     /// </summary>
-    Target ReportCoverage => _ => _
+    Target ReportCoverage => t => t
         .TryTriggeredBy<ITest>(x => x.Test)
         .Consumes(Test)
         .Produces(CoverageReportArchive)
@@ -44,7 +44,7 @@ public interface IReportCoverage : ITest, IHasReports, IHasGitRepository
             if (!CreateCoverageHtmlReport)
                 return;
 
-            ReportGeneratorTasks.ReportGenerator(_ => _
+            ReportGeneratorTasks.ReportGenerator(s => s
                 .Apply(ReportGeneratorSettingsBase)
                 .Apply(ReportGeneratorSettings));
 
@@ -54,7 +54,7 @@ public interface IReportCoverage : ITest, IHasReports, IHasGitRepository
     /// <summary>
     /// Settings for controlling the generation of code coverage reports.
     /// </summary>
-    sealed Configure<ReportGeneratorSettings> ReportGeneratorSettingsBase => _ => _
+    sealed Configure<ReportGeneratorSettings> ReportGeneratorSettingsBase => t => t
         .SetReports(TestResultDirectory / "*.xml")
         .SetReportTypes(ReportTypes.HtmlInline)
         .SetTargetDirectory(CoverageReportDirectory)
@@ -63,5 +63,5 @@ public interface IReportCoverage : ITest, IHasReports, IHasGitRepository
     /// <summary>
     /// Additional settings for controlling the generation of code coverage reports.
     /// </summary>
-    Configure<ReportGeneratorSettings> ReportGeneratorSettings => _ => _;
+    Configure<ReportGeneratorSettings> ReportGeneratorSettings => t => t;
 }

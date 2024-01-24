@@ -23,7 +23,7 @@ class Build : NukeBuild, IFormat, ICompile
 
     public IEnumerable<AbsolutePath> ExcludedFormatPaths => Enumerable.Empty<AbsolutePath>();
 
-    Target ICompile.Compile => _ => _
+    Target ICompile.Compile => t => t
         .Inherit<ICompile>()
         .DependsOn<IFormat>(x => x.VerifyFormat);
 }

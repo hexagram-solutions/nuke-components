@@ -18,6 +18,6 @@ class Build : NukeBuild, ICompile
     readonly Solution Solution;
     Solution IHasSolution.Solution => Solution;
 
-    Target ICompile.Compile => _ => _
+    Target ICompile.Compile => t => t
         .Inherit<ICompile>();
 }

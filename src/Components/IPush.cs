@@ -27,16 +27,16 @@ public interface IPush : IPack
     /// <summary>
     /// Publish NuGet packages using <c>dotnet nuget push</c>.
     /// </summary>
-    Target Push => _ => _
+    Target Push => t => t
         .Description("Publish packages to NuGet")
         .DependsOn(Pack)
         .Requires(() => NuGetApiKey)
         .Executes(() =>
         {
-            DotNetNuGetPush(_ => _
+            DotNetNuGetPush(s => s
                     .Apply(PushSettingsBase)
                     .Apply(PushSettings)
-                    .CombineWith(PushPackageFiles, (_, v) => _
+                    .CombineWith(PushPackageFiles, (x, v) => x
                         .SetTargetPath(v))
                     .Apply(PackagePushSettings),
                 PushDegreeOfParallelism,
@@ -46,19 +46,19 @@ public interface IPush : IPack
     /// <summary>
     /// Settings for controlling the behaviour of the <c>dotnet nuget push</c> command.
     /// </summary>
-    sealed Configure<DotNetNuGetPushSettings> PushSettingsBase => _ => _
+    sealed Configure<DotNetNuGetPushSettings> PushSettingsBase => t => t
         .SetSource(NuGetSource)
         .SetApiKey(NuGetApiKey);
 
     /// <summary>
     /// Additional settings for controlling the behaviour of the <c>dotnet nuget push</c> command.
     /// </summary>
-    Configure<DotNetNuGetPushSettings> PushSettings => _ => _;
+    Configure<DotNetNuGetPushSettings> PushSettings => t => t;
 
     /// <summary>
     /// Additional settings for controlling the behaviour packages pushed to NuGet.
     /// </summary>
-    Configure<DotNetNuGetPushSettings> PackagePushSettings => _ => _;
+    Configure<DotNetNuGetPushSettings> PackagePushSettings => t => t;
 
     /// <summary>
     /// The NuGet packages to push. Defaults to all files with the <c>.nupkg</c> extension under

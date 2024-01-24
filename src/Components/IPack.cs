@@ -20,36 +20,36 @@ public interface IPack : ICompile, IHasArtifacts, IHasGitRepository
     /// <summary>
     /// Run <c>dotnet pack</c> on the solution.
     /// </summary>
-    Target Pack => _ => _
+    Target Pack => t => t
         .Description("Create NuGet packages for the solution.")
         .DependsOn(Compile)
         .TryAfter<ITest>()
         .Produces(PackagesDirectory / "*.nupkg")
         .Executes(() =>
         {
-            DotNetPack(_ => _
+            DotNetPack(s => s
                 .Apply(PackSettingsBase)
                 .Apply(PackSettings));
 
-            ReportSummary(_ => _
+            ReportSummary(d => d
                 .AddPair("Packages", PackagesDirectory.GlobFiles("*.nupkg").Count.ToString()));
         });
 
     /// <summary>
     /// Settings for controlling the behavior of the <c>dotnet pack</c> command.
     /// </summary>
-    sealed Configure<DotNetPackSettings> PackSettingsBase => _ => _
+    sealed Configure<DotNetPackSettings> PackSettingsBase => t => t
         .SetProject(Solution)
         .SetConfiguration(Configuration)
         .SetNoBuild(SucceededTargets.Contains(Compile))
         .SetProperty("PackageOutputPath", PackagesDirectory)
-        .WhenNotNull(this as IHasGitRepository, (_, o) => _
-            .SetRepositoryUrl(o!.GitRepository.HttpsUrl))
-        .WhenNotNull(this as IHasVersioning, (_, o) => _
+        .WhenNotNull(this as IHasGitRepository, (s, o) => s
+            .SetRepositoryUrl(o.GitRepository.HttpsUrl))
+        .WhenNotNull(this as IHasVersioning, (s, o) => s
             .SetVersion(o!.Versioning.NuGetVersionV2));
 
     /// <summary>
     /// Additional settings for controlling the behavior of the <c>dotnet pack</c> command.
     /// </summary>
-    Configure<DotNetPackSettings> PackSettings => _ => _;
+    Configure<DotNetPackSettings> PackSettings => t => t;
 }
