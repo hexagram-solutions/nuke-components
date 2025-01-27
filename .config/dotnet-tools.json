@@ -3,16 +3,25 @@
   "isRoot": true,
   "tools": {
     "nuke.globaltool": {
-      "version": "8.0.0",
+      "version": "9.0.4",
       "commands": [
         "nuke"
-      ]
+      ],
+      "rollForward": false
     },
     "docfx": {
-      "version": "2.66.0",
+      "version": "2.78.2",
       "commands": [
         "docfx"
-      ]
+      ],
+      "rollForward": false
+    },
+    "gitversion.tool": {
+      "version": "5.1.18",
+      "commands": [
+        "dotnet-gitversion"
+      ],
+      "rollForward": false
     }
   }
 }
