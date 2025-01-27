@@ -18,7 +18,7 @@ namespace Hexagrams.Nuke.Components;
 public interface IReportCoverage : ITest, IHasReports, IHasGitRepository
 {
     /// <summary>
-    /// Whether or not to generate an HTML coverage report.
+    /// Whether to generate an HTML coverage report.
     /// </summary>
     bool CreateCoverageHtmlReport { get; }
 

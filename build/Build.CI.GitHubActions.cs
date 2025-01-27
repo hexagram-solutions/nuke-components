@@ -9,7 +9,7 @@ using Nuke.Common.CI.GitHubActions;
     FetchDepth = 0,
     OnPullRequestBranches = ["main"],
     OnPushBranches = ["main", "release/v*"],
-    PublishArtifacts = true,
+    PublishArtifacts = false,
     InvokedTargets = [nameof(ITest.Test)],
     CacheKeyFiles = ["global.json", "src/**/*.csproj"])]
 // TODO: Package signing
