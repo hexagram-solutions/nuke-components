@@ -7,6 +7,7 @@ using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.DotNet;
+using Nuke.Common.Utilities;
 
 // ReSharper disable RedundantExtendsListEntry
 // ReSharper disable InconsistentNaming
@@ -37,7 +38,7 @@ partial class Build : NukeBuild,
     readonly Solution Solution;
     Solution IHasSolution.Solution => Solution;
 
-    public IEnumerable<AbsolutePath> ExcludedFormatPaths => Enumerable.Empty<AbsolutePath>();
+    public IEnumerable<AbsolutePath> ExcludedFormatPaths => [];
 
     public bool RunFormatAnalyzers => true;
 

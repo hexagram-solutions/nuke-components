@@ -16,7 +16,7 @@ public interface IFormat : IHasSolution
     IEnumerable<AbsolutePath> ExcludedFormatPaths { get; }
 
     /// <summary>
-    /// Whether or not to run third-party analyzers as part of formatting verification.
+    /// Whether to run third-party analyzers as part of formatting verification.
     /// </summary>
     bool RunFormatAnalyzers => false;
 

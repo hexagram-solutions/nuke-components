@@ -8,6 +8,7 @@ using Nuke.Common.ProjectModel;
 using Nuke.Common.Tooling;
 using Nuke.Common.Tools.Coverlet;
 using Nuke.Common.Tools.DotNet;
+using Nuke.Common.Utilities;
 using Nuke.Common.Utilities.Collections;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
@@ -66,7 +67,7 @@ public interface ITest : IHasArtifacts, ICompile
             AzurePipelines.Instance?.PublishTestResults(
                 type: AzurePipelinesTestResultsType.VSTest,
                 title: $"{Path.GetFileNameWithoutExtension(x)} ({AzurePipelines.Instance.StageDisplayName})",
-                files: new string[] { x }));
+                files: [x]));
     }
 
     private void ReportTestCount()
