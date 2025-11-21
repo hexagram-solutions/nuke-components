@@ -1,0 +1,34 @@
+<Solution>
+  <Folder Name="/samples/" />
+  <Folder Name="/samples/1-basic/">
+    <Project Path="samples/1-basic/build/_build.csproj" />
+  </Folder>
+  <Folder Name="/samples/1-basic/src/">
+    <Project Path="samples/1-basic/src/App/Hexagrams.Nuke.Samples.Basic.App.csproj" />
+  </Folder>
+  <Folder Name="/samples/2-format/">
+    <Project Path="samples/2-format/build/_build.csproj" />
+  </Folder>
+  <Folder Name="/samples/2-format/src/">
+    <Project Path="samples/2-format/src/App/Hexagrams.Nuke.Samples.Format.App.csproj" />
+  </Folder>
+  <Folder Name="/samples/3-test/">
+    <Project Path="samples/3-test/build/_build.csproj" />
+  </Folder>
+  <Folder Name="/samples/3-test/src/">
+    <Project Path="samples/3-test/src/Library/Hexagrams.Nuke.Samples.Test.Library.csproj" />
+  </Folder>
+  <Folder Name="/samples/3-test/tests/" />
+  <Folder Name="/samples/3-test/tests/Library/">
+    <Project Path="samples/3-test/tests/Library/Hexagrams.Nuke.Samples.Test.Library.Tests/Hexagrams.Nuke.Samples.Test.Library.Tests.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Components/Hexagrams.Nuke.Components.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Components/Hexagrams.Nuke.Components.Tests.csproj" />
+  </Folder>
+  <Project Path="build/_build.csproj">
+    <Build Project="false" />
+  </Project>
+</Solution>
