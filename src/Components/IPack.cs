@@ -46,7 +46,7 @@ public interface IPack : ICompile, IHasArtifacts, IHasGitRepository
         .WhenNotNull(this as IHasGitRepository, (s, o) => s
             .SetRepositoryUrl(o.GitRepository.HttpsUrl))
         .WhenNotNull(this as IHasVersioning, (s, o) => s
-            .SetVersion(o!.Versioning.NuGetVersionV2));
+            .SetVersion(o!.Versioning.SemVer));
 
     /// <summary>
     /// Additional settings for controlling the behavior of the <c>dotnet pack</c> command.
