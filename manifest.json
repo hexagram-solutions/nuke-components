@@ -1,0 +1,332 @@
+{
+  "source_base_path": "/home/runner/work/nuke-components/nuke-components/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.ComponentExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.ComponentExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.ComponentExtensions",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.ComponentExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for NUKE <a href=\"https://nuke.build/docs/sharing/build-components/\">build components</a>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.Configuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.Configuration.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.Configuration",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.Configuration.yml\" sourcestartlinenumber=\"1\">The configuration to use for building the project.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IClean.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IClean.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IClean",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IClean.yml\" sourcestartlinenumber=\"1\">Provides targets and configuration for cleaning the current solution.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.ICompile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.ICompile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.ICompile",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.ICompile.yml\" sourcestartlinenumber=\"1\">Targets and settings for compiling the solution.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IFormat.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IFormat",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IFormat.yml\" sourcestartlinenumber=\"1\">Provides targets and configuration for verifying and applying code style preferences.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IHasArtifacts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IHasArtifacts.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IHasArtifacts",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IHasArtifacts.yml\" sourcestartlinenumber=\"1\">Provides properties for controlling build artifact output.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IHasConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IHasConfiguration.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IHasConfiguration",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IHasConfiguration.yml\" sourcestartlinenumber=\"1\">Provides parameters for setting the build configuration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IHasGitRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IHasGitRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IHasGitRepository",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IHasGitRepository.yml\" sourcestartlinenumber=\"1\">Provides properties for accessing information about the current Git repository.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IHasReports.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IHasReports.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IHasReports",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IHasReports.yml\" sourcestartlinenumber=\"1\">Provides properties for controlling build report output.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IHasSolution.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IHasSolution.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IHasSolution",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IHasSolution.yml\" sourcestartlinenumber=\"1\">Provides properties for accessing information about the solution being built.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IHasVersioning.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IHasVersioning.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IHasVersioning",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IHasVersioning.yml\" sourcestartlinenumber=\"1\">Provides properties for accessing versioning information calculated with\n<a href=\"https://gitversion.net/\">GitVersion</a>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IPack.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IPack.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IPack",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IPack.yml\" sourcestartlinenumber=\"1\">Provides targets and configuration for creating NuGet packages using <code>dotnet pack</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IPush.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IPush.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IPush",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IPush.yml\" sourcestartlinenumber=\"1\">Provides targets and configuration for pushing NuGet packages.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IReportCoverage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IReportCoverage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IReportCoverage",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IReportCoverage.yml\" sourcestartlinenumber=\"1\">Targets and configuration for creation of code coverage reports.\n<remarks>\nRequires the <a href=\"https://github.com/danielpalme/ReportGenerator\">ReportGenerator</a> client tool to be\ninstalled in the build project, for example:</remarks></p>\n<pre><code class=\"lang-csharp\">&lt;PackageDownload Include=\"ReportGenerator\" version=\"[x.y.z]\" /&gt;</code></pre>\n\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.IRestore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.IRestore.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.IRestore",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.IRestore.yml\" sourcestartlinenumber=\"1\">Targets and configuration for restoring dependencies for the solution.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.ITest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.ITest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.ITest",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.ITest.yml\" sourcestartlinenumber=\"1\">Targets and configuration for executing unit tests in the solution.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.ToolSettingsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.ToolSettingsExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components.ToolSettingsExtensions",
+      "Summary": "<p sourcefile=\"api/Hexagrams.Nuke.Components.ToolSettingsExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for tool execution configuration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Hexagrams.Nuke.Components.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Hexagrams.Nuke.Components.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Hexagrams.Nuke.Components",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
