@@ -30,13 +30,14 @@ public interface IReportCoverage : ITest, IHasReports, IHasGitRepository
     /// <summary>
     /// The path to the coverage report archive (.zip).
     /// </summary>
-    AbsolutePath CoverageReportArchive => Path.ChangeExtension(CoverageReportDirectory, ".zip");
+    AbsolutePath CoverageReportArchive => CoverageReportDirectory.WithExtension("zip");
 
     /// <summary>
     /// Create code coverage reports.
     /// </summary>
     Target ReportCoverage => t => t
-        .TryTriggeredBy<ITest>(x => x.Test)
+        .DependsOn(Test)
+        .TryAfter<ITest>()
         .Consumes(Test)
         .Produces(CoverageReportArchive)
         .Executes(() =>
@@ -58,7 +59,7 @@ public interface IReportCoverage : ITest, IHasReports, IHasGitRepository
         .SetReports(TestResultDirectory / "*.xml")
         .SetReportTypes(ReportTypes.HtmlInline)
         .SetTargetDirectory(CoverageReportDirectory)
-        .SetFramework("net8.0");
+        .SetFramework("net10.0");
 
     /// <summary>
     /// Additional settings for controlling the generation of code coverage reports.

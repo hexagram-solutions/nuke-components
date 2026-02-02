@@ -18,7 +18,7 @@ using Nuke.Common.CI.GitHubActions;
     GitHubActionsImage.UbuntuLatest,
     FetchDepth = 0,
     OnPushTags = ["v*"],
-    PublishArtifacts = true,
+    PublishArtifacts = false,
     InvokedTargets = [nameof(ITest.Test), nameof(IPack.Pack), nameof(IPush.Push)],
     CacheKeyFiles = ["global.json", "src/**/*.csproj"],
     ImportSecrets = [nameof(IPush.NuGetApiKey)])]
