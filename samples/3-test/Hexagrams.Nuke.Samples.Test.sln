@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DE2C261C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{CA4C3324-1205-40CA-BC01-66ADBBA61EE6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexagrams.Nuke.Samples.Test.Library.Tests", "tests\Library\Hexagrams.Nuke.Samples.Test.Library.Tests\Hexagrams.Nuke.Samples.Test.Library.Tests.csproj", "{8DBA0242-92B0-4BFF-A0F3-CFD92EF6EDAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexagrams.Nuke.Samples.Test.Library.Tests", "tests\Library\Hexagrams.Nuke.Samples.Test.Library.Tests.csproj", "{8DBA0242-92B0-4BFF-A0F3-CFD92EF6EDAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
