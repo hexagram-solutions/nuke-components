@@ -32,7 +32,7 @@ partial class Build : NukeBuild,
     ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
     ///   - Microsoft VSCode           https://nuke.build/vscode
 
-    public static int Main() => Execute<Build>(x => ((ICompile) x).Compile);
+    public static int Main() => Execute<Build>(x => ((ITest) x).Test);
 
     [Solution]
     readonly Solution Solution;
