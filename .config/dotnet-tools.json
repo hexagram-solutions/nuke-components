@@ -15,13 +15,6 @@
         "docfx"
       ],
       "rollForward": false
-    },
-    "gitversion.tool": {
-      "version": "6.5.1",
-      "commands": [
-        "dotnet-gitversion"
-      ],
-      "rollForward": false
     }
   }
 }

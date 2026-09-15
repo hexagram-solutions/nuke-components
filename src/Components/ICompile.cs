@@ -25,7 +25,7 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
         {
             ReportSummary(d => d
                 .WhenNotNull(this as IHasVersioning, (x, o) => x
-                    .AddPair("Version", o!.Versioning.FullSemVer)));
+                    .AddPair("Version", o!.Versioning.Version)));
 
             DotNetBuild(s => s
                 .Apply(CompileSettingsBase)
@@ -51,9 +51,9 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
         .WhenNotNull(this as IHasGitRepository, (s, o) => s
             .SetRepositoryUrl(o!.GitRepository.HttpsUrl))
         .WhenNotNull(this as IHasVersioning, (s, o) => s
-            .SetAssemblyVersion(o!.Versioning.AssemblySemVer)
-            .SetFileVersion(o.Versioning.AssemblySemFileVer)
-            .SetInformationalVersion(o.Versioning.InformationalVersion));
+            .SetAssemblyVersion(o!.Versioning.AssemblyVersion)
+            .SetFileVersion(o.Versioning.FileVersion)
+            .SetInformationalVersion(o.Versioning.Version));
 
     /// <summary>
     /// Settings for controlling publish behavior.
@@ -67,9 +67,9 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
         .WhenNotNull(this as IHasGitRepository, (s, o) => s
             .SetRepositoryUrl(o!.GitRepository.HttpsUrl))
         .WhenNotNull(this as IHasVersioning, (s, o) => s
-            .SetAssemblyVersion(o!.Versioning.AssemblySemVer)
-            .SetFileVersion(o.Versioning.AssemblySemFileVer)
-            .SetInformationalVersion(o.Versioning.InformationalVersion));
+            .SetAssemblyVersion(o!.Versioning.AssemblyVersion)
+            .SetFileVersion(o.Versioning.FileVersion)
+            .SetInformationalVersion(o.Versioning.Version));
 
     /// <summary>
     /// Additional settings for controlling the <c>dotnet build</c> command.
