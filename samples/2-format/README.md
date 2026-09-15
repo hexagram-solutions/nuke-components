@@ -5,20 +5,20 @@ This sample checks the formatting of the code in the solution using the
 formatted according to the .editorconfig for the solution. This component uses
 `dotnet format` under the hood.
 
-If formatting passes, a basic build of the solution using the
-[`ICompile`](../../Components/ICompile.cs) target.
+If formatting passes, a basic build of the solution runs using the
+[`ICompile`](../../src/Components/ICompile.cs) target.
 
-To see the output, invoke `Format` target with this command:
+To see the output, invoke the `VerifyFormat` target with this command:
 
 ```powershell
-nuke format
+nuke verify-format
 ```
 
 In the case that formatting issues are found, the `IFormat` component also
 provides a target to fix the formatting:
 
 ```powershell
-nuke fix-format
+nuke format
 ```
 
 Since the default compile target depends on `IFormat`, the formatting target is

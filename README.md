@@ -6,6 +6,8 @@ For more information about these components, see the [docs](https://hexagram-sol
 
 To read more about shared components in general, see the [official NUKE docs](https://nuke.build/docs/sharing/build-components).
 
+This library is published to [NuGet](https://www.nuget.org/packages/Hexagrams.Nuke.Components).
+
 ## Contributing
 
 This repository uses [Husky.Net](https://alirezanet.github.io/Husky.Net/) for
@@ -44,8 +46,8 @@ in the following ways:
 
 ### NUKE global tool
 
-The preferred way to invoke NUKE builds is with the [global tool](https://nuke.build/docs/getting-started/setup.html). To install it, run the following
-command:
+The preferred way to invoke NUKE builds is with the [global tool](https://nuke.build/docs/getting-started/setup.html).
+To install it, run the following command:
 
 ```powershell
 dotnet tool install nuke.globaltool -g
