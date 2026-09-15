@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Library\Hexagrams.Nuke.Samples.Test.Library.csproj" />
+    <ProjectReference Include="..\..\src\Library\Hexagrams.Nuke.Samples.Test.Library.csproj" />
   </ItemGroup>
 
 </Project>
