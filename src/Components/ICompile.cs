@@ -45,7 +45,7 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
     sealed Configure<DotNetBuildSettings> CompileSettingsBase => t => t
         .SetProjectFile(Solution)
         .SetConfiguration(Configuration)
-        .When(IsServerBuild, s => s
+        .When(_ => IsServerBuild, s => s
             .EnableContinuousIntegrationBuild())
         .SetNoRestore(SucceededTargets.Contains(Restore))
         .WhenNotNull(this as IHasGitRepository, (s, o) => s
@@ -62,7 +62,7 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
         .SetConfiguration(Configuration)
         .EnableNoBuild()
         .EnableNoLogo()
-        .When(IsServerBuild, s => s
+        .When(_ => IsServerBuild, s => s
             .EnableContinuousIntegrationBuild())
         .WhenNotNull(this as IHasGitRepository, (s, o) => s
             .SetRepositoryUrl(o!.GitRepository.HttpsUrl))
@@ -84,8 +84,7 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
     /// <summary>
     /// The publish configurations to build with.
     /// </summary>
-    IEnumerable<(Project Project, string Framework)> PublishConfigurations
-        => Array.Empty<(Project Project, string Framework)>();
+    IEnumerable<(Project Project, string Framework)> PublishConfigurations => [];
 
     /// <summary>
     /// The number of projects to publish in parallel when running the <c>dotnet publish</c> command. Defaults to

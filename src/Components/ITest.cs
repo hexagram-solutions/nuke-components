@@ -102,13 +102,13 @@ public interface ITest : IHasArtifacts, ICompile
         .SetNoBuild(SucceededTargets.Contains(Compile))
         .ResetVerbosity()
         .SetResultsDirectory(TestResultDirectory)
-        .When(ExecutionPlan.Contains((this as IReportCoverage)?.ReportCoverage) || IsServerBuild, s => s
+        .When(_ => ExecutionPlan.Contains((this as IReportCoverage)?.ReportCoverage) || IsServerBuild, s => s
             .EnableCollectCoverage()
             .SetCoverletOutputFormat(CoverletOutputFormat.cobertura)
             .SetExcludeByFile("*.Generated.cs")
-            .When(TeamCity.Instance is not null, x => x
+            .When(_ => TeamCity.Instance is not null, x => x
                 .SetCoverletOutputFormat($"\\\"{CoverletOutputFormat.cobertura},{CoverletOutputFormat.teamcity}\\\""))
-            .When(IsServerBuild, x => x
+            .When(_ => IsServerBuild, x => x
                 .EnableUseSourceLink()));
 
     /// <summary>
@@ -117,15 +117,15 @@ public interface ITest : IHasArtifacts, ICompile
     sealed Configure<DotNetTestSettings, Project> TestProjectSettingsBase => (s, v) => s
         .SetProjectFile(v)
         // https://github.com/Tyrrrz/GitHubActionsTestLogger
-        .When(GitHubActions.Instance is not null && v.HasPackageReference("GitHubActionsTestLogger"), x => x
+        .When(_ => GitHubActions.Instance is not null && v.HasPackageReference("GitHubActionsTestLogger"), x => x
             .AddLoggers("GitHubActions;report-warnings=false"))
         // https://github.com/JetBrains/TeamCity.VSTest.TestAdapter
-        .When(TeamCity.Instance is not null && v.HasPackageReference("TeamCity.VSTest.TestAdapter"), x => x
+        .When(_ => TeamCity.Instance is not null && v.HasPackageReference("TeamCity.VSTest.TestAdapter"), x => x
             .AddLoggers("TeamCity")
             // https://github.com/xunit/visualstudio.xunit/pull/108
             .AddRunSetting("RunConfiguration.NoAutoReporters", bool.TrueString))
         .AddLoggers($"trx;LogFileName={v.Name}.trx")
-        .When(ExecutionPlan.Contains((this as IReportCoverage)?.ReportCoverage) || IsServerBuild, x => x
+        .When(_ => ExecutionPlan.Contains((this as IReportCoverage)?.ReportCoverage) || IsServerBuild, x => x
             .SetCoverletOutput(TestResultDirectory / $"{v.Name}.xml"));
 
     /// <summary>
