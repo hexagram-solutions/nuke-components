@@ -10,7 +10,7 @@
     <!-- Held at 7.x: FluentAssertions 8.0+ requires a paid commercial license. -->
     <PackageVersion Include="FluentAssertions" Version="7.2.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.301" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.303" />
     <!-- Transitive pin (via Nuke.Common) for GHSA-g4vj-cjjj-v7hg. -->
     <PackageVersion Include="NuGet.Packaging" Version="6.12.5" />
     <PackageVersion Include="Nuke.Common" Version="10.1.0" />
