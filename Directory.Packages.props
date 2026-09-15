@@ -11,8 +11,17 @@
     <PackageVersion Include="FluentAssertions" Version="7.2.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.303" />
-    <!-- Transitive pin (via Nuke.Common) for GHSA-g4vj-cjjj-v7hg. -->
-    <PackageVersion Include="NuGet.Packaging" Version="6.12.5" />
+    <!-- Transitive pins (via Nuke.Common). Nuke.Common 10.1.0 resolves the NuGet client
+         libraries at 6.12.x, but the .NET 10.0.4xx SDK's MSBuild targets bind to
+         NuGet.Frameworks 7.9.0.0. The 6.12.x copy in the build project's output wins at
+         load time and breaks in-process project evaluation (Project.HasPackageReference),
+         which ITest uses. Pin the family to the version the SDK ships. This also clears
+         GHSA-g4vj-cjjj-v7hg, which affects NuGet.Packaging 6.12.0-6.12.4. -->
+    <PackageVersion Include="NuGet.Common" Version="7.9.0" />
+    <PackageVersion Include="NuGet.Configuration" Version="7.9.0" />
+    <PackageVersion Include="NuGet.Frameworks" Version="7.9.0" />
+    <PackageVersion Include="NuGet.Packaging" Version="7.9.0" />
+    <PackageVersion Include="NuGet.Versioning" Version="7.9.0" />
     <PackageVersion Include="Nuke.Common" Version="10.1.0" />
     <PackageVersion Include="ReportGenerator" Version="5.5.10" />
     <!-- Transitive pin (via Nuke.Common): Nuke.Common resolves a version with known
