@@ -56,7 +56,7 @@ For a single test project, use `dotnet test` directly against the relevant
 - **`build/`** — this repo's own NUKE build project (`Build.cs`), which
   consumes the components from `src/Components` to build/test/pack/push itself.
 - **`samples/`** — three standalone, runnable NUKE build projects
-  (`1-basic`, `2-format`, `3-test`), each with its own `.sln` and `build/`,
+  (`1-basic`, `2-format`, `3-test`), each with its own `.slnx` and `build/`,
   demonstrating one component in isolation. Their READMEs link to specific files
   under `src/Components/` — keep those links in sync if files move or are renamed.
 - **`docs/`** — DocFX site config, published to GitHub Pages

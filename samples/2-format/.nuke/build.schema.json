@@ -76,7 +76,7 @@
         },
         "Solution": {
           "type": "string",
-          "description": "Path to a solution file that is automatically loaded. Default is ./Hexagrams.Nuke.Samples.Format.sln"
+          "description": "Path to a solution file that is automatically loaded. Default is ./Hexagrams.Nuke.Samples.Format.slnx"
         },
         "Target": {
           "type": "array",
