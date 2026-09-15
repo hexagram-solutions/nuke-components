@@ -67,7 +67,7 @@ public interface IPush : IPack
     IEnumerable<AbsolutePath> PushPackageFiles => PackagesDirectory.GlobFiles("*.nupkg");
 
     /// <summary>
-    /// Whether or not to complete the push target, even if it fails. Defaults to <c>true</c>;
+    /// Whether to complete the push target, even if it fails. Defaults to <c>true</c>;
     /// </summary>
     bool PushCompleteOnFailure => true;
 

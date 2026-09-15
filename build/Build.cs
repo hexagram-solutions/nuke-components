@@ -32,7 +32,7 @@ partial class Build : NukeBuild,
     ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
     ///   - Microsoft VSCode           https://nuke.build/vscode
 
-    public static int Main() => Execute<Build>(x => ((ICompile) x).Compile);
+    public static int Main() => Execute<Build>(x => ((ITest) x).Test);
 
     [Solution]
     readonly Solution Solution;
@@ -51,8 +51,7 @@ partial class Build : NukeBuild,
     IEnumerable<Project> ITest.TestProjects => Partition.GetCurrent(Solution.GetAllProjects("*.Tests"));
 
     Configure<DotNetPublishSettings> ICompile.PublishSettings => t => t
-        .When(!ScheduledTargets.Contains(((IPush) this).Push), s => s
-            .ClearProperties());
+        .When(_ => !ScheduledTargets.Contains(this.FromComponent<IPush>().Push), s => s.ClearProperties());
 
     Target IPush.Push => t => t
         .Inherit<IPush>()

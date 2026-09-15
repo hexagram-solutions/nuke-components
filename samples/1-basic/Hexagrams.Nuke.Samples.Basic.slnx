@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/build/">
+    <Project Path="build/_build.csproj">
+      <Build Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/App/Hexagrams.Nuke.Samples.Basic.App.csproj" />
+  </Folder>
+</Solution>

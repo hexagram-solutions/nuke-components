@@ -17,7 +17,7 @@ class Build : NukeBuild, ICompile, ITest, IReportCoverage
 
     // The path to the solution file must be explicitly specified because this project is nested below the main build
     // project for the repository. Normally, you don't have to specify a relative path to the solution file.
-    [Solution("./Hexagrams.Nuke.Samples.Test.sln")]
+    [Solution("./Hexagrams.Nuke.Samples.Test.slnx")]
     readonly Solution Solution;
     Solution IHasSolution.Solution => Solution;
 

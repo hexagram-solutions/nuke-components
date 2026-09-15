@@ -1,6 +1,6 @@
 # Sample: Test with Coverage Report
 
-This sample runs unit tests in the solution using the [`ITest`](../../src/Components/Test.cs)
+This sample runs unit tests in the solution using the [`ITest`](../../src/Components/ITest.cs)
 component. This component uses `dotnet test` under the hood.
 
 To see the output, invoke the `Test` target with this command:

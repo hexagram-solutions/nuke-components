@@ -16,7 +16,7 @@
     <Copyright>Copyright $([System.DateTime]::Now.Year) Hexagrams Solutions</Copyright>
     <PackageTags>build-automation continuous-integration tools nuke</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/Hexagrams/nuke-components</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/hexagram-solutions/nuke-components</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
@@ -30,6 +30,7 @@
 
   <PropertyGroup Condition="'$(IsPackable)' != 'False'">
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <ItemGroup Condition="">
@@ -37,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>

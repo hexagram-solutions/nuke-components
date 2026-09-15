@@ -1,4 +1,4 @@
 {
   "$schema": "./build.schema.json",
-  "Solution": "Hexagrams.Nuke.Samples.Test.sln"
+  "Solution": "Hexagrams.Nuke.Samples.Test.slnx"
 }

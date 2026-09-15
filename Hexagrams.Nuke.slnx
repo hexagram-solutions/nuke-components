@@ -1,4 +1,9 @@
 <Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
   <Folder Name="/samples/" />
   <Folder Name="/samples/1-basic/">
     <Project Path="samples/1-basic/build/_build.csproj" />
@@ -18,9 +23,8 @@
   <Folder Name="/samples/3-test/src/">
     <Project Path="samples/3-test/src/Library/Hexagrams.Nuke.Samples.Test.Library.csproj" />
   </Folder>
-  <Folder Name="/samples/3-test/tests/" />
-  <Folder Name="/samples/3-test/tests/Library/">
-    <Project Path="samples/3-test/tests/Library/Hexagrams.Nuke.Samples.Test.Library.Tests/Hexagrams.Nuke.Samples.Test.Library.Tests.csproj" />
+  <Folder Name="/samples/3-test/tests/">
+    <Project Path="samples/3-test/tests/Library/Hexagrams.Nuke.Samples.Test.Library.Tests.csproj" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/Components/Hexagrams.Nuke.Components.csproj" />

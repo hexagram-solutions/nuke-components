@@ -25,7 +25,7 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
         {
             ReportSummary(d => d
                 .WhenNotNull(this as IHasVersioning, (x, o) => x
-                    .AddPair("Version", o!.Versioning.FullSemVer)));
+                    .AddPair("Version", o!.Versioning.Version)));
 
             DotNetBuild(s => s
                 .Apply(CompileSettingsBase)
@@ -45,15 +45,15 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
     sealed Configure<DotNetBuildSettings> CompileSettingsBase => t => t
         .SetProjectFile(Solution)
         .SetConfiguration(Configuration)
-        .When(IsServerBuild, s => s
+        .When(_ => IsServerBuild, s => s
             .EnableContinuousIntegrationBuild())
         .SetNoRestore(SucceededTargets.Contains(Restore))
         .WhenNotNull(this as IHasGitRepository, (s, o) => s
             .SetRepositoryUrl(o!.GitRepository.HttpsUrl))
         .WhenNotNull(this as IHasVersioning, (s, o) => s
-            .SetAssemblyVersion(o!.Versioning.AssemblySemVer)
-            .SetFileVersion(o.Versioning.AssemblySemFileVer)
-            .SetInformationalVersion(o.Versioning.InformationalVersion));
+            .SetAssemblyVersion(o!.Versioning.AssemblyVersion)
+            .SetFileVersion(o.Versioning.FileVersion)
+            .SetInformationalVersion(o.Versioning.Version));
 
     /// <summary>
     /// Settings for controlling publish behavior.
@@ -62,14 +62,14 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
         .SetConfiguration(Configuration)
         .EnableNoBuild()
         .EnableNoLogo()
-        .When(IsServerBuild, s => s
+        .When(_ => IsServerBuild, s => s
             .EnableContinuousIntegrationBuild())
         .WhenNotNull(this as IHasGitRepository, (s, o) => s
             .SetRepositoryUrl(o!.GitRepository.HttpsUrl))
         .WhenNotNull(this as IHasVersioning, (s, o) => s
-            .SetAssemblyVersion(o!.Versioning.AssemblySemVer)
-            .SetFileVersion(o.Versioning.AssemblySemFileVer)
-            .SetInformationalVersion(o.Versioning.InformationalVersion));
+            .SetAssemblyVersion(o!.Versioning.AssemblyVersion)
+            .SetFileVersion(o.Versioning.FileVersion)
+            .SetInformationalVersion(o.Versioning.Version));
 
     /// <summary>
     /// Additional settings for controlling the <c>dotnet build</c> command.
@@ -84,8 +84,7 @@ public interface ICompile : IRestore, IClean, IHasConfiguration
     /// <summary>
     /// The publish configurations to build with.
     /// </summary>
-    IEnumerable<(Project Project, string Framework)> PublishConfigurations
-        => Array.Empty<(Project Project, string Framework)>();
+    IEnumerable<(Project Project, string Framework)> PublishConfigurations => [];
 
     /// <summary>
     /// The number of projects to publish in parallel when running the <c>dotnet publish</c> command. Defaults to

@@ -1,7 +1,7 @@
 # Sample: Basic
 
 This sample performs a basic build of the solution using the
-[`ICompile`](../../src/Hexagrams.Nuke.Components/ICompile.cs) target.
+[`ICompile`](../../src/Components/ICompile.cs) target.
 
 In this example, the `Compile` target depends on the `Clean` target. When the
 default build is run, the repository will be cleaned, and then the solution
