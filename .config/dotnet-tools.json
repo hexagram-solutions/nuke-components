@@ -10,9 +10,16 @@
       "rollForward": false
     },
     "docfx": {
-      "version": "2.78.4",
+      "version": "2.78.5",
       "commands": [
         "docfx"
+      ],
+      "rollForward": false
+    },
+    "dotnet-outdated-tool": {
+      "version": "4.8.1",
+      "commands": [
+        "dotnet-outdated"
       ],
       "rollForward": false
     }
